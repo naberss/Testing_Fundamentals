@@ -2,16 +2,22 @@ package com.naberss.testing_fundamentals.Entities;
 
 import java.util.Objects;
 
-public class Dollar extends Money {
+public class Franc extends Money {
 
     private int amount;
 
-    public Dollar(int amount) {
+    public Franc(int amount) {
         super(amount);
         this.amount = amount;
     }
 
-    public Dollar times(int multiplier) {
-        return new Dollar(this.amount * multiplier);
+    public Franc times(int multiplier) {
+        return new Franc(this.amount * multiplier);
     }
 }
+
+
+
+
+
+
