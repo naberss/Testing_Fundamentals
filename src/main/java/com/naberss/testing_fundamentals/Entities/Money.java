@@ -2,9 +2,10 @@ package com.naberss.testing_fundamentals.Entities;
 
 import java.util.Objects;
 
-public class Money {
+public abstract class Money {
 
-    private int amount;
+    protected int amount;
+    protected String currency;
 
     public Money(int amount) {
         this.amount = amount;
@@ -18,9 +19,19 @@ public class Money {
         this.amount = amount;
     }
 
-    public Money times(int multiplier) {
-        return new Money(this.amount * multiplier);
+    protected abstract Money times(int multiplier);
+
+    public static Dollar dollar(int amount) {
+        return new Dollar(amount);
     }
+
+    public static Franc franc(int amount) {
+        return new Franc(amount);
+    }
+
+    public String currency(){
+        return this.currency;
+    };
 
     @Override
     public boolean equals(Object o) {
