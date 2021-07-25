@@ -1,15 +1,11 @@
 package com.naberss.testing_fundamentals.Entities;
 
-public class Dollar extends Money {
+public class Dollar extends Currency{
 
-    public Dollar(int amount) {
-        super(amount);
-        this.currency = "USD";
-    }
-
-    @Override
-    public Money times(int multiplier) {
-        return new Dollar(this.amount * multiplier);
+    public Dollar() {
+        super();
+        this.EA = "USD";
+        this.ratio = 1;
     }
 
 }

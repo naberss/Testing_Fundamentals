@@ -1,48 +1,60 @@
 package com.naberss.testing_fundamentals.Entities;
 
+import com.naberss.testing_fundamentals.Interfaces.Converter;
+
 import java.util.Objects;
 
-public abstract class Money {
+public class Money implements Converter {
 
-    protected int amount;
-    protected String currency;
+    protected double amount;
+    protected Currency currency;
 
-    public Money(int amount) {
+    public Money(double amount) {
         this.amount = amount;
     }
 
-    public int getAmount() {
+    public Money(double amount, Currency currency) {
+        this.amount = amount;
+        this.currency = currency;
+    }
+
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    protected abstract Money times(int multiplier);
-
-    public static Dollar dollar(int amount) {
-        return new Dollar(amount);
-    }
-
-    public static Franc franc(int amount) {
-        return new Franc(amount);
-    }
-
-    public String currency(){
+    public Currency getCurrency() {
         return this.currency;
-    };
+    }
+
+    public Money times(double multiplier) {
+        return new Money(this.amount * multiplier, this.currency);
+    }
+
+    public static Money dollar(double amount) {
+        return new Money(amount, new Dollar());
+    }
+
+    public static Money franc(double amount) {
+        return new Money(amount, new Franc());
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
         Money money = (Money) o;
-        return amount == money.amount;
+        return getAmount() == money.getAmount() && currency.equals(money.currency);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(amount);
+        return Objects.hash(getAmount(), currency);
+    }
+
+    @Override
+    public String toString() {
+        return "Money{" +
+                "amount=" + amount +
+                ", currency='" + currency + '\'' +
+                '}';
     }
 }
