@@ -9,10 +9,6 @@ public class Money implements Converter {
     protected double amount;
     protected Currency currency;
 
-    public Money(double amount) {
-        this.amount = amount;
-    }
-
     public Money(double amount, Currency currency) {
         this.amount = amount;
         this.currency = currency;

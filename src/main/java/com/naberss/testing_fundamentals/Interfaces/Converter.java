@@ -5,14 +5,14 @@ import com.naberss.testing_fundamentals.Entities.Money;
 
 public interface Converter {
 
-    public static Money convert(Money fromCurrency, Currency toCurrency) {
+    static Money convert(Money fromCurrency, Currency toCurrency) {
         double parsedValue = ((toCurrency.getRatio() / fromCurrency.getCurrency().getRatio()) * fromCurrency.getAmount());
 
         return new Money(parsedValue, toCurrency);
     }
 
 
-    public static Money Sum(Currency currency, Money... money) {
+    static Money Sum(Currency currency, Money... money) {
         double sum = 0L;
         for (Money m : money) {
             if (m.getCurrency() == currency) {
