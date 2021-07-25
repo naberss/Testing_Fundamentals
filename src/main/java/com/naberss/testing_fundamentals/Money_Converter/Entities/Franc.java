@@ -1,4 +1,4 @@
-package com.naberss.testing_fundamentals.Entities;
+package com.naberss.testing_fundamentals.Money_Converter.Entities;
 
 public class Franc extends Currency{
 

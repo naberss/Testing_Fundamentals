@@ -1,16 +1,18 @@
-package com.naberss.testing_fundamentals.Entities_Test;
+package com.naberss.testing_fundamentals.Money_Converter_Tests;
 
-import com.naberss.testing_fundamentals.Entities.Dollar;
-import com.naberss.testing_fundamentals.Entities.Franc;
-import com.naberss.testing_fundamentals.Entities.Money;
-import com.naberss.testing_fundamentals.Interfaces.Converter;
+import com.naberss.testing_fundamentals.Money_Converter.Entities.Dollar;
+import com.naberss.testing_fundamentals.Money_Converter.Entities.Franc;
+import com.naberss.testing_fundamentals.Money_Converter.Entities.Money;
+import com.naberss.testing_fundamentals.Money_Converter.Interfaces.Converter;
+import com.naberss.testing_fundamentals.Project2.Greeting;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class MoneyTest {
-
+    
     @Test
     void testMultiplicationDollar() {
         Money five = Money.dollar(5);

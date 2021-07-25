@@ -1,7 +1,7 @@
-package com.naberss.testing_fundamentals.Interfaces;
+package com.naberss.testing_fundamentals.Money_Converter.Interfaces;
 
-import com.naberss.testing_fundamentals.Entities.Currency;
-import com.naberss.testing_fundamentals.Entities.Money;
+import com.naberss.testing_fundamentals.Money_Converter.Entities.Currency;
+import com.naberss.testing_fundamentals.Money_Converter.Entities.Money;
 
 public interface Converter {
 

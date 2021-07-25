@@ -1,6 +1,6 @@
-package com.naberss.testing_fundamentals.Entities;
+package com.naberss.testing_fundamentals.Money_Converter.Entities;
 
-import com.naberss.testing_fundamentals.Interfaces.Converter;
+import com.naberss.testing_fundamentals.Money_Converter.Interfaces.Converter;
 
 import java.util.Objects;
 
