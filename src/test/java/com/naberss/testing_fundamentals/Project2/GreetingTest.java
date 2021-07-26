@@ -2,6 +2,7 @@ package com.naberss.testing_fundamentals.Project2;
 
 import com.naberss.testing_fundamentals.Money_Converter.Exceptions.UnregisteredCurrency;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.condition.*;
 
 import java.time.Duration;
 
@@ -22,6 +23,9 @@ class GreetingTest {
         greeting = new Greeting();
     }
 
+    @EnabledOnOs(OS.WINDOWS)
+    @EnabledOnJre(JRE.JAVA_16)
+    @EnabledIfEnvironmentVariable(named = "USER", matches = "Lucas")
     @DisplayName("just testing")
     @Test
     void helloWorldTest() {
@@ -54,7 +58,7 @@ class GreetingTest {
     @Test
     void timeoutTest() {
         assertTimeout(Duration.ofMillis(100),
-                () -> Thread.sleep(85));
+                () -> Thread.sleep(5));
     }
 
     @Disabled("because i want to '2'")
