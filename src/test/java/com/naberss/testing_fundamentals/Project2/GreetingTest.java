@@ -9,7 +9,7 @@ import java.time.Duration;
 import static org.junit.jupiter.api.Assertions.*;
 
 //@Disabled(value = "it happens")
-class GreetingTest {
+class GreetingTest implements project2_Interface {
 
     Greeting greeting;
 
