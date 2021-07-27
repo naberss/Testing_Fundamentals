@@ -43,8 +43,8 @@ class GreetingTest implements project2_Interface {
     void helloWorldTest2() {
         Greeting greeting = new Greeting();
         assertEquals("hello lucas", greeting.helloWorld("lucas"));
-        System.out.printf(greeting.helloWorld("lucas"));
-        assertTrue("hello lucas" == greeting.helloWorld("lucas"), () -> "not the same thing");
+        System.out.print(greeting.helloWorld("lucas"));
+        assertSame("hello lucas", greeting.helloWorld("lucas"), "not the same thing");
     }
 
 
@@ -55,9 +55,8 @@ class GreetingTest implements project2_Interface {
         });
     }
 
-    @Test
     @DisplayName("TimingTest")
-    @RepeatedTest(value = 5, name = "{displayName}: {currentRepetition} - {totalRepetitions}")
+    @RepeatedTest(value = 2, name = "{displayName}: {currentRepetition} - {totalRepetitions}")
     void timeoutTest() {
         assertTimeout(Duration.ofMillis(100),
                 () -> Thread.sleep(5));

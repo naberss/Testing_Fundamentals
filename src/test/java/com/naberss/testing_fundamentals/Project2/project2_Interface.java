@@ -1,16 +1,15 @@
 package com.naberss.testing_fundamentals.Project2;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.*;
 
-@TestInstance(TestInstance.Lifecycle.PER_METHOD)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Tag("project2")
 public interface project2_Interface {
 
-    @BeforeEach
-    default void myTestMethod() {
-        System.out.println("thats it folks");
+
+    @BeforeAll
+    @DisplayName("My PersonTest")
+    default void personTest(TestInfo testInfo) {
+        System.out.print(testInfo.getTags());
     }
 }
