@@ -4,10 +4,10 @@ import com.naberss.testing_fundamentals.Money_Converter.Exceptions.UnregisteredC
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.*;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.EnumSource;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.*;
 
 import java.time.Duration;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -78,7 +78,6 @@ class GreetingTest implements project2_Interface {
         Assumptions.assumeFalse(1 == 0);
     }
 
-    @Test
     @DisplayName("String_Param_Test")
     @ParameterizedTest(name = "{displayName} - {index}: {arguments}")
     @ValueSource(strings = {"test1", "test2", "test3"})
@@ -86,8 +85,6 @@ class GreetingTest implements project2_Interface {
         System.out.println(val);
     }
 
-
-    @Test
     @DisplayName("Enum_Param_Test")
     @ParameterizedTest(name = "{displayName} - {index}: {arguments}")
     @EnumSource(project2_Enum.class)
@@ -95,10 +92,26 @@ class GreetingTest implements project2_Interface {
         System.out.println(P2);
     }
 
+  /*  @DisplayName("oh captain my captain - Test")
+    @ParameterizedTest(name = "{displayName}")
+    @CsvFileSource(resources = "\\MY_TXT_2.csv")
+    void csvParameterizesTest(String val1, String val2, String val3) {
+        System.out.println(val1 + " " + val2 + " " + val3);
+    }*/
 
-    @AfterAll
-    public static void afterAll() {
-        System.out.println("@AfterAll this has to be static");
+    @DisplayName("method_Parameterized_Test")
+    @ParameterizedTest(name = "{displayName}")
+    @MethodSource("getArgs")
+    void methodParameterizedTest(String val1, int val2) {
+        System.out.println(val1 + " - " + val2);
     }
+
+    static Stream<Arguments> getArgs() {
+        return Stream.of(
+                Arguments.of("FL", 5),
+                Arguments.of("OH", 2),
+                Arguments.of("MI", 3));
+    }
+
 
 }
