@@ -56,6 +56,8 @@ class GreetingTest implements project2_Interface {
     }
 
     @Test
+    @DisplayName("TimingTest")
+    @RepeatedTest(value = 5, name = "{displayName}: {currentRepetition} - {totalRepetitions}")
     void timeoutTest() {
         assertTimeout(Duration.ofMillis(100),
                 () -> Thread.sleep(5));
@@ -70,8 +72,8 @@ class GreetingTest implements project2_Interface {
 
     @Test
     void AssumptionTest() {
-        Assumptions.assumeTrue(1==0);
-        Assumptions.assumeFalse(1==0);
+        Assumptions.assumeTrue(1 == 0);
+        Assumptions.assumeFalse(1 == 0);
 
     }
 
