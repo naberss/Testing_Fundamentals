@@ -7,6 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -111,6 +112,13 @@ class GreetingTest implements project2_Interface {
                 Arguments.of("FL", 5),
                 Arguments.of("OH", 2),
                 Arguments.of("MI", 3));
+    }
+
+    @DisplayName("customArgumentProviderTest")
+    @ParameterizedTest(name = "{displayName}")
+    @ArgumentsSource(ArgumentsProvider.class)
+    public void customArgumentProviderTest(String val1, int val2) {
+        System.out.println(val1 + " - " + val2);
     }
 
 
